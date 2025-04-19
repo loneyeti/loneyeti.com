@@ -1,0 +1,59 @@
+---
+title: "Why I Built Snowgoose"
+description: "Snowgoose is a new service for unified AI interaction. I've used it every day for a year and a half."
+pubDate: "2025-04-19"
+tags: ["Snowgoose", "AI", "Open Source"]
+author: Troy Harris
+showSidebar: false
+layout: ../../layouts/PostLayout.astro
+---
+
+Hi everyone,
+
+I want to share what led me to build [Snowgoose](https://snowgoose.app), and why I still rely on it every day. Maybe it will be useful for you too.
+
+## The Problem I Was Trying to Solve
+
+A year and a half ago, I basically wanted to avoid paying the OpenAI monthly fee for GPT-4, so I created Snowgoose for my wife and I to use and we saved a significant amount of money in the process.
+
+Then I wanted to add Claude and Gemini to it, so I needed to rewrite it in a way that normailized the various APIs and returned responses in a uniform way. This eventually lead to [snowgander](https://github.com/lone-yeti-development/snowgander) which is an open source Typescript/npm package that does that unification on the backend.
+
+After adding more and more features, such as vision, image generation, reasoning/thinking modes, output formats, etc, I thought maybe others would find it useful as well.
+
+### Personas: A Simple, Effective System
+
+One part I’m especially happy with is the Persona system. It’s straightforward: save your system prompts as personas. The difference compared to just putting instructions in the main prompt box is real—models seem to treat system prompts more seriously, and the results are noticeably better.
+
+Creating and switching personas lets you move between tasks or roles quickly—from coding, to writing help, to research, and more. If you want to make specialized personas for your own work, there’s a built-in persona called “Persona Enhancer” that can help you fine-tune them.
+
+### Fast Access to New Models
+
+Whenever a new AI model gets API access, I try to add it to Snowgoose right away. If anyone requests a model that’s available, I’m happy to make it a priority. The goal is simple: unified access to all the latest, most capable models, without delays.
+
+### Output Control and Formats
+
+Another thing that’s been useful to me—especially for coding and integration work—is choosing your output format. You can pick Markdown, JSON, HTML, or CSV. For example, getting quick JSON outputs has made a big difference in my workflow.
+
+### Design and Typography
+
+One detail I care about is typography. Because AI interactions are all about text, I wanted Snowgoose to make reading and writing as clear and pleasant as possible. The UI is kept clean and minimal for that reason. Good text presentation shouldn’t be an afterthought.
+
+### Get to Work Quickly, Options When You Need Them
+
+The idea is to get you interacting with the model as quickly as possible, without getting bogged down by too many choices. At the same time, advanced options are there if you want them. Save and revisit conversations, try out reasoning and thinking modes, upload images, set custom personas, and control output formats.
+
+Features like image generation (Google’s model now, OpenAI as soon as their API is released) and vision support are included.
+
+### Looking Forward
+
+I’m excited about some upcoming technology like Model Context Protocol (MCP). It offers more advanced management of your conversations and data across models. I’m rolling this out slowly, making sure it’s secure for both users and for Snowgoose itself. For now, a proof of concept is included as a simple time and date tool.
+
+## Pricing and Philosophy
+
+I want Snowgoose to be accessible. The basic plan is $5 a month—a low point compared to most services for this kind of unified AI access. I don’t like variable token pricing, so predictable monthly cost felt like the right move.
+
+Snowgoose is also [open source](https://github.com/loneyeti/snowgoose). I hope that helps build trust and invites others to contribute or suggest changes.
+
+## In Closing
+
+I made [Snowgoose](https://snowgoose.app) to solve problems I ran into every day. If you’re looking for unified, straightforward access to top AI models—without complication—I hope you’ll find it helpful. If you have ideas, feedback, or if something’s not working, reach out.

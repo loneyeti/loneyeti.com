@@ -1,0 +1,194 @@
+@import "tailwindcss";
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+@plugin '@tailwindcss/typography';
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #0d3b73, #3cbdf7, #ff8d00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 0.5rem;
+  background-clip: padding-box;
+  padding: 2px;
+  background: linear-gradient(90deg, #0d3b73, #3cbdf7, #ff8d00);
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.gradient-border > div {
+  background: white;
+  border-radius: 0.4rem;
+  height: 100%;
+}
+
+.dark .gradient-border > div {
+  background: #0f172a;
+}
+
+.hero-gradient {
+  background: linear-gradient(100deg, #0d3b73, #3cbdf7);
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px -8px rgba(13, 59, 115, 0.15);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(90deg, #3cbdf7, #ff8d00);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #0d3b73, #3cbdf7);
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px -4px rgba(13, 59, 115, 0.3);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 6px 12px -4px rgba(13, 59, 115, 0.2);
+}
+
+.dark .btn-secondary {
+  background: rgba(13, 59, 115, 0.2);
+  border: 1px solid rgba(60, 189, 247, 0.2);
+}
+
+.dark .btn-secondary:hover {
+  background: rgba(13, 59, 115, 0.3);
+}
+
+.tag {
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.tag:hover {
+  transform: translateY(-2px);
+}
+
+.post-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px -8px rgba(13, 59, 115, 0.15);
+}
+
+.dark .post-card:hover {
+  box-shadow: 0 12px 24px -8px rgba(60, 189, 247, 0.1);
+}
+
+.bg-pattern {
+  background-image: radial-gradient(
+    rgba(60, 189, 247, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+}

@@ -1,0 +1,87 @@
+# Lone Yeti Development Website - Project Intelligence
+
+This file captures important patterns, preferences, and project intelligence for the Lone Yeti website project.
+
+## Coding Patterns
+
+### Astro Component Structure
+
+- Frontmatter section uses `---` delimiters
+- Component scripts go in the frontmatter section
+- Component markup follows directly after frontmatter
+- Component styles can be included in `<style>` tags at the end
+
+### MDX Content Structure
+
+- MDX files use YAML frontmatter with `---` delimiters
+- Required frontmatter fields: `title`, `date`
+- Optional frontmatter fields: `description`, `tags`, `hero`, `canonical`
+
+### Styling Preferences
+
+- Primary styling approach is TailwindCSS utility classes
+- Typography handled by @tailwindcss/typography plugin
+- Component-scoped styles used for component-specific styling
+- Custom color palette defined in tailwind.config.ts
+
+## Project Specific Patterns
+
+### Product Priorities
+
+- Snowgoose is the primary product to highlight (https://snowgoose.app)
+- Novelrunner is the secondary product (https://novelrunner.app)
+- Open source projects should also be showcased but with less prominence
+
+### Navigation Structure
+
+- Simple top-level navigation with Home, Blog, and product links
+- External links (like Snowgoose) open in new tabs with target="\_blank"
+
+### Component Architecture
+
+- Layout.astro provides the base HTML structure
+- PostLayout.astro extends Layout.astro with blog-specific formatting
+- Uses slots for content injection
+
+## File Organization
+
+### Content Organization
+
+- Blog posts live in `/src/pages/blog/`
+- Components in `/src/components/`
+- Layouts in `/src/layouts/`
+- Assets in `/src/assets/`
+
+### Memory Bank
+
+- Update memory bank files when making significant changes to the project
+- Keep activeContext.md and progress.md updated with the latest development status
+- Revisit all memory bank files at the start of each development session
+
+## Workflows & Preferences
+
+### Development Workflow
+
+- Use `npm run dev` for local development
+- View changes at localhost:4321 (default Astro port)
+- Build with `npm run build` for production
+
+### Content Creation
+
+- When creating new blog posts, copy the structure of existing posts
+- All dates should use ISO format in frontmatter
+- Display dates should use the format from date-fns library
+
+## Known Challenges
+
+### Current Limitations
+
+- Homepage is using Astro default and needs custom implementation
+- Blog listing page needs to be created
+- Navigation is minimal and needs expansion
+
+### Technical Debt
+
+- Need to standardize frontmatter structure across all content
+- Improve SEO metadata
+- Implement proper dark mode toggle

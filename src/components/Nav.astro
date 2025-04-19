@@ -1,0 +1,108 @@
+---
+// Get the current URL path to highlight active links
+const currentPath = Astro.url.pathname;
+const isActive = (path: string) => {
+  if (path === '/') {
+    return currentPath === path;
+  }
+  return currentPath.startsWith(path);
+};
+---
+
+<nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+  <a href="/" class={`nav-link transition-colors ${isActive('/') ? 'active text-primary-700 dark:text-primary-100' : 'text-slate-700 dark:text-slate-300 hover:text-primary-700 dark:hover:text-primary-100'}`}>
+    Home
+  </a>
+  <a href="/blog" class={`nav-link transition-colors ${isActive('/blog') ? 'active text-primary-700 dark:text-primary-100' : 'text-slate-700 dark:text-slate-300 hover:text-primary-700 dark:hover:text-primary-100'}`}>
+    Blog
+  </a>
+  <a href="https://snowgoose.app" target="_blank" rel="noopener" class="nav-link text-slate-700 dark:text-slate-300 hover:text-primary-700 dark:hover:text-primary-100 transition-colors flex items-center gap-1">
+    Snowgoose
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+      <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+      <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+    </svg>
+  </a>
+  <a href="https://novelrunner.app" target="_blank" rel="noopener" class="nav-link text-slate-700 dark:text-slate-300 hover:text-primary-700 dark:hover:text-primary-100 transition-colors flex items-center gap-1">
+    Novelrunner
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+      <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+      <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+    </svg>
+  </a>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="md:hidden">
+  <button id="mobile-menu-button" class="p-2 text-slate-700 dark:text-slate-300">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="menu-icon">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="close-icon">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <div id="mobile-menu" class="fixed inset-0 bg-white dark:bg-slate-900 z-50 flex flex-col items-center justify-center space-y-8 text-lg font-medium transform transition-transform duration-300 translate-x-full">
+    <a href="/" class={`nav-link transition-colors ${isActive('/') ? 'active text-primary-700 dark:text-primary-100' : 'text-slate-700 dark:text-slate-300'}`}>
+      Home
+    </a>
+    <a href="/blog" class={`nav-link transition-colors ${isActive('/blog') ? 'active text-primary-700 dark:text-primary-100' : 'text-slate-700 dark:text-slate-300'}`}>
+      Blog
+    </a>
+    <a href="https://snowgoose.app" target="_blank" rel="noopener" class="nav-link text-slate-700 dark:text-slate-300 flex items-center gap-1">
+      Snowgoose
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+        <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+      </svg>
+    </a>
+    <a href="https://novelrunner.app" target="_blank" rel="noopener" class="nav-link text-slate-700 dark:text-slate-300 flex items-center gap-1">
+      Novelrunner
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+        <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+      </svg>
+    </a>
+  </div>
+</div>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  
+  if (mobileMenuButton && mobileMenu && menuIcon && closeIcon) {
+    mobileMenuButton.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('translate-x-0');
+      
+      if (isOpen) {
+        mobileMenu.classList.remove('translate-x-0');
+        mobileMenu.classList.add('translate-x-full');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      } else {
+        mobileMenu.classList.add('translate-x-0');
+        mobileMenu.classList.remove('translate-x-full');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      }
+    });
+    
+    // Close mobile menu when clicking on links
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('translate-x-0');
+        mobileMenu.classList.add('translate-x-full');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      });
+    });
+  }
+</script>
