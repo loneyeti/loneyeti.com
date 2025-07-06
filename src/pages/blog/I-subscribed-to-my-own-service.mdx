@@ -1,0 +1,28 @@
+---
+title: "I Subscribed to My Own Service and Then Changed Everything"
+description: "Downgrading myself to a normal account on my own service taught me a lot"
+pubDate: "2025-07-06"
+tags: ["Snowgoose", "SaaS", "Business"]
+author: Troy Harris
+showSidebar: false
+layout: ../../layouts/PostLayout.astro
+---
+
+As I have [mentioned before](https://loneyeti.com/blog/why-i-built-snowgoose/) I am the biggest active user of [Snowgoose](http://snowgoose.app), my unified AI service. But as the founder, I get to give myself a nice, unlimited account with no restrictions. This is great, but it got me wondering how it felt to be a normal user with a credits counter to worry about. So, I actually subscribed to my own service. My findings made me [change the entire business model](https://snowgoose.app/blog/snowgoose-credits-now-rollover).
+
+## Change #1: Persistant Credits
+
+This most annoying feature I noticed was that after my first month, my credits reset just like they were supposed to, but I had quite a few credits remaining from the previous month. A main feature of the business model was that we gave out credits at our cost or lower than our cost, but they expire every month. But when I saw that I had quite a bit of credits left and those simply vanished when the credits refreshed, it didn't feel great. It felt like I had lost something. Also, on the business side, it made me feel like we were operating more like a gym: trying to make money on people who forgot about their subscription.
+Now that I had some actual data behind usage and costs, I was able to take a hard look at the business plan and come up with something that felt more sustainable, and more fair to the user. After a massive backend credit system rewrite, credits now roll over for a year before they expire. Now, my 105 credits that I had remaining last month were added to the additional 800 new credits I received when my monthly account rolled over.
+
+## Change #2: Too Generous of a Free Trial
+
+I started another account that I exclusively used on my phone. This account was a simple, free account. I have noticed that I'm using Snowgoose more and more on my phone. It has a great mobile interface. Still, despite pretty consistant use, I never used all of my free credits, even though I was using expensive models like Opus 4 with high thinking mode. This helps explain the data where we have quite a few free users that don't reach their free limit. This isn't sustainable for a little independent SaaS. I needed to fix this by slightly lowering the initial credit amount and changing it to a 14 day free trial.
+
+## Change #3: One-time Credit Purchases
+
+Changing the free trial from a forever trial to a 14 day trial made me think that I needed something for users that maybe weren't ready to commit to a subscription, but still wanted to use the service. So, I created one-time credit purchases. They are slightly marked up from the subscription service, but they last a year and don't incur any recuring costs. Also, it allows subscribers to add on some more credits without upgrading their entire subscription.
+
+## A True Glowup for Snowgoose
+
+It has been quite a month of coding for Snowgoose. In addition to the business and credit changes, Snowgoose got a [ton of new features](https://snowgoose.app/blog/snowgoose-major-update-image-generation-web-search-streaming) like streaming, inline image generation, and web search. Snowgoose has become absolutely vital for me in my day-to-day life and I'm happy that I get to share it with others.
